@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web form</title>
+    <style>
+     form{
+         background-color: #AF62B2;
+         width : 400px;
+         
+         }
+    </style>
+   
+{% include "base.html" %}
+</head>
+
+<body background="https://images.pexels.com/photos/910213/pexels-photo-910213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" link="white" alink="blue" vlink="#F8F8FF">
+<hr>
+
+<center>
+<h3>The free of cost facility of GST helpdesk is intended to provide genuine and trustworthy access to advice 
+and information  on GST related matters. Questions asked here are attended by willing and serving officials
+of CGST department.Adherence to the advice is sole discretion of the person seeking the advice. The phone No.
+and email id collected here is intended to serve in a better way and may be used in tendering advice more
+eloquently. There shall be no other use of the data collected here.</h3>
+{% block content %}
+<hr><br><br><br>
+
+ <form action="" method="post">
+     {% csrf_token %}
+
+     <label for="phone" class="form-label" required maxlength = "10"   >Phone No.:</label>
+     <div class="mb-3">
+ 
+  <input type="tel" class="form-control" size = "35" id="exampleFormControlInput1"  name = "phone">
+ 
+</div>
+
+ <label for="email" class="form-label" required maxlength = "10">Email address:</label>
+<div class= "mb-3">
+   <input type="email" class="form-control" size = "35" id="exampleFormControlInput1" placeholder="name@example.com" name = "email">
+ </div>
+
+
+<label for="exampleFormControlTextarea1" class="form-label">Submit your Query:</label>
+<div class="mb-3">
+   <b> <textarea class="form-control" rows = "15" cols = "40" id="exampleFormControlTextarea1" rows="3" name = "query" required maxlength = "100" ></textarea></b>
+</div>
+      <button type="submit" class="btn btn-primary" name = "submit" >Submit</button>
+    </form>
+
+</center>
+{% endblock  %}
+</body>
+
+
+</html>

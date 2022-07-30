@@ -1,0 +1,79 @@
+
+{% include "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web form</title>
+
+   
+</head>
+
+{% block content  %}
+<center>
+<body background="https://images.pexels.com/photos/910213/pexels-photo-910213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" link="white" alink="blue" vlink="#F8F8FF">
+
+    <h1>Forum</h1>
+  
+     <form class = "d-flex" method = POST action = "{% url 'search_bar' %}">
+   {% csrf_token %}
+    
+    <input class = "form-control me-2" type = "search" placeholder = "Search" aria-label = "Search" name = "searched">
+    <button class = "btn btn-outline-secondary" type="submit">Search</button>
+
+  </form>
+
+
+{% if searched  %}
+  
+  <h3> You Searched For</h3>
+  <br/>
+  {% for v in venue %}
+  <div class="box">
+      <a href = "{% url 'show_forum' v.id %}"> {{v}}   </a> 
+    </div>
+      <hr>
+
+  {% endfor %}
+{% else %}
+    <h1> Hey! You Forgot to search </h1>
+{% endif %}
+
+<h3> This is search page </h3>
+</body>
+</center>
+{% endblock  %}
+
+
+
+  <style>
+a{
+    color : black;
+    font-size : 20px;
+  
+}
+
+b{
+    color :violet;
+    text-align : right;
+}
+div{
+    background-color: #AF62B2;
+    width: 800px;
+    padding: 50px;
+    border: 2px solid gray;
+    margin: 0;
+}
+
+form{
+  padding: px;
+  position: relative;
+  left: 10px;
+
+}
+
+
+
+ </style>

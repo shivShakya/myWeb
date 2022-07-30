@@ -1,0 +1,49 @@
+
+{% include "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web form</title>
+
+   
+</head>
+
+
+
+{% block content %}
+
+<center>
+<body background="https://images.pexels.com/photos/910213/pexels-photo-910213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" link="white" alink="blue" vlink="#F8F8FF">
+<h1>  Your Query  </h1>
+<hr>
+ {% csrf_token %}
+<div class='box'>
+ <h3> Question : {{venue.query}}  </h3>
+ <hr>
+<h3> Answer : {{venue.answer}}  </h3>
+<hr>
+
+</div>
+</body>
+</center>
+{% endblock content %}
+
+<style>
+div{
+ background-color: #AF62B2;
+    width: 500px;
+    padding: 50px;
+    border: 2px solid gray;
+    margin: 0;
+
+}
+h3{
+    text-color: blue;
+}
+
+
+
+</style>
